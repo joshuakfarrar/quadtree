@@ -7,6 +7,12 @@ define(function() {
     },
 
     renderFrame: function() {
+      this.paintItBlack();
+    },
+
+    paintItBlack: function() {
+      this.context.fillColor = "#000000";
+      this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
     }
   });
 
