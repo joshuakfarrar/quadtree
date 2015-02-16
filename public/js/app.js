@@ -1,4 +1,4 @@
-define(['renderer', 'updater'], function(Renderer, Updater) {
+define(['renderer', 'updater', 'physics'], function(Renderer, Updater, Physics) {
   var App = Class.extend({
     init: function() {
       this.hasNeverStarted = true;
@@ -15,6 +15,8 @@ define(['renderer', 'updater'], function(Renderer, Updater) {
 
     run: function() {
       this.setUpdater(new Updater(this));
+      this.setPhysics(new Physics(this));
+
       this.started = true;
       this.tick();
       this.hasNeverStarted = false;
@@ -22,6 +24,10 @@ define(['renderer', 'updater'], function(Renderer, Updater) {
 
     setUpdater: function(updater) {
       this.updater = updater;
+    },
+
+    setPhysics: function(physics) {
+      this.physics = physics;
     },
 
     tick: function() {
