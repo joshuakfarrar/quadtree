@@ -1,4 +1,4 @@
-# javascript-graphics-skeleton
+# Hellsing
 A project skeleton that uses jquery, requirejs, underscore.js, and class.js.
 
 # how to use
