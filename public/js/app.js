@@ -1,12 +1,14 @@
-define(['renderer', 'updater', 'physics'], function(Renderer, Updater, Physics) {
+define(['renderer', 'updater', 'physics', 'simulation'], function(Renderer, Updater, Physics, Simulation) {
   var App = Class.extend({
     init: function() {
       this.hasNeverStarted = true;
       this.started = false;
+
+      this.objects = [];
     },
 
     setup: function(canvas) {
-      this.setRenderer(new Renderer(canvas));
+      this.setRenderer(new Renderer(this, canvas));
     },
 
     setRenderer: function(renderer) {
@@ -15,7 +17,8 @@ define(['renderer', 'updater', 'physics'], function(Renderer, Updater, Physics) 
 
     run: function() {
       this.setUpdater(new Updater(this));
-      this.setPhysics(new Physics(this));
+      this.setPhysics(new Physics());
+      this.setSimulation(new Simulation(this));
 
       this.started = true;
       this.tick();
@@ -30,6 +33,10 @@ define(['renderer', 'updater', 'physics'], function(Renderer, Updater, Physics) 
       this.physics = physics;
     },
 
+    setSimulation: function(simulation) {
+      this.simulation = simulation;
+    },
+
     tick: function() {
       this.currentTime = new Date().getTime();
 
@@ -41,6 +48,10 @@ define(['renderer', 'updater', 'physics'], function(Renderer, Updater, Physics) 
       if(!this.isStopped) {
         requestAnimFrame(this.tick.bind(this));
       }
+    },
+
+    addObject: function(object) {
+      this.objects.push(object);
     }
   });
 

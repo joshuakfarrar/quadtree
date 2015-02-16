@@ -5,6 +5,7 @@ define(function() {
     },
 
     update: function() {
+      this.app.simulation.step();
     }
   });
 
