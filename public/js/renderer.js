@@ -14,7 +14,7 @@ define(function() {
 
     paintItBlack: function() {
       this.context.save();
-        this.context.fillStyle = "#000000";
+        this.context.fillStyle = "#20201f";
         this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
       this.context.restore();
     },
@@ -45,7 +45,7 @@ define(function() {
       }
 
       this.context.save();
-        this.context.strokeStyle = "#fafafa";
+        this.context.strokeStyle = "#50b4a2";
         this.context.strokeRect(
           node._bounds.x,
           node._bounds.y,
