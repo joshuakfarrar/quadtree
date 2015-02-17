@@ -20,7 +20,7 @@ define(['quadtree', 'rect'], function(Quadtree, Rect) {
         this.addObject(new Rect(x, y));
       }
 
-      if (this.t % 20 === 0) {
+      if (this.t % 15 === 0) {
         var i = Math.floor(Math.random() * this.rects.length);
         this.rects.splice(i, 1);
       }
