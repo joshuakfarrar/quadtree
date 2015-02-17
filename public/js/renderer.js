@@ -29,9 +29,12 @@ define(function() {
     },
 
     drawRect: function(rect) {
+      var x = rect.x - rect.width / 2,
+          y = rect.y - rect.height / 2;
+
       this.context.save();
         this.context.fillStyle = "#ffffff";
-        this.context.fillRect(rect.x, rect.y, rect.width, rect.height);
+        this.context.fillRect(x, y, rect.width, rect.height);
       this.context.restore();
     },
 
